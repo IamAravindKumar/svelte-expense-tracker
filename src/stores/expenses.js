@@ -9,7 +9,7 @@ function createExpenseStore() {
             const newExpense = {}
             newExpense['expenseDate'] = expense.expenseDate
             newExpense['category'] = expense.category
-            // newExpense['amount'] = parseFloat(expense.amount)
+            newExpense['amount'] = parseFloat(expense.amount)
             newExpense['expenseID'] = new Date().valueOf()
 
             update((expenses) => {

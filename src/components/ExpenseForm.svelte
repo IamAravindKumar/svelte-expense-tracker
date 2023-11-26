@@ -21,6 +21,7 @@
           .oneOf(categories)
           .required(),
         expenseDate: yup.date().min(threeMonthsAgo).max(new Date()).required(),
+        amount: yup.number().min(1).max(999999).required(),
       }),
       onSubmit: values => {
         dispatcher("add_expense", {...values})
@@ -41,6 +42,17 @@
     </select>
     {#if $errors.category}
       <small>{$errors.category}</small>
+    {/if}
+
+    <label for="amount">Amount</label>
+    <input
+      id="amount"
+      name="amount"
+      type="number"
+      bind:value={$form.amount}
+    />
+    {#if $errors.amount}
+      <small>{$errors.amount}</small>
     {/if}
 
     <label for="expenseDate">Expense Date</label>

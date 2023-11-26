@@ -1,5 +1,6 @@
 <script>
     import ExpenseForm from "../../components/ExpenseForm.svelte";
+    import ExpenseList from "../../components/ExpenseList.svelte";
     import { expenses } from "../../stores/expenses.js";
 
 function addExpense(e) {
@@ -11,6 +12,8 @@ function addExpense(e) {
 
 <div class="container">
     <ExpenseForm on:add_expense={addExpense} />
+    <ExpenseList />
+
 </div>
 
 <style>
